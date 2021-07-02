@@ -17,8 +17,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq
           pwd
-          changelog="$(./.github/scripts/dump-changelog.sh)"
-          echo "::set-output name=changelog::${changelog}"
+          content="$(./.github/scripts/dump-changelog.sh)"
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo ::set-output name=changelog::${content}
 
       - name: Find Comment
         uses: peter-evans/find-comment@v1
