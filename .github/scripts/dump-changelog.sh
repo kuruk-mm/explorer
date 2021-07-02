@@ -7,13 +7,13 @@ add_line_prefix()
   echo "$(sed 's/^/- /' <<< "${1}")"
 }
 
-echo "# Kernel changelog:"
+echo "## Kernel changelog:"
 KERNEL_CHANGELOG=$(git log --oneline origin/release..HEAD --no-merges --pretty=%s)
 
 add_line_prefix "${KERNEL_CHANGELOG}"
 
 echo " "
-echo "# Unity renderer changelog:"
+echo "## Unity renderer changelog:"
 
 HEAD_HASH=$(git rev-parse HEAD)
 LAST_RELEASE_HASH=$(git rev-parse origin/release)

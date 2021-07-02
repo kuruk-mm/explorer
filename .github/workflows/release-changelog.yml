@@ -3,6 +3,8 @@ name: Release Changelog Notification
 on:
   pull_request:
     types: [ opened, synchronize ]
+    branches:
+      - 'release-**'
 
 jobs:
   comment:
