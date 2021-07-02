@@ -8,6 +8,7 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Get changelog
         id: get-comment-body
         run: |
