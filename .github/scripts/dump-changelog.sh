@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-#RENDERER_PATH=$1
 
 add_line_prefix()
 {
@@ -27,7 +26,6 @@ LAST_RELEASE_RENDERER_VERSION=$(jq '."devDependencies"."@dcl/unity-renderer"' <<
 HEAD_RENDERER_HASH=$(npm view @dcl/unity-renderer@${HEAD_RENDERER_VERSION} commit)
 LAST_RELEASE_RENDERER_HASH=$(npm view @dcl/unity-renderer@${LAST_RELEASE_RENDERER_VERSION} commit)
 
-#cd ${RENDERER_PATH}
 git remote add renderer https://github.com/decentraland/unity-renderer.git
 git fetch renderer --quiet
 
